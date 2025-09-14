@@ -1,0 +1,206 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Car Rental Service Design System - Indian automotive theme */
+
+@layer base {
+  :root {
+    /* Indian car rental theme - professional greys with saffron accents */
+    --background: 220 15% 97%;
+    --foreground: 220 25% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 25% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 25% 15%;
+
+    /* Saffron orange primary color inspired by Indian flag */
+    --primary: 25 95% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Professional grey secondary */
+    --secondary: 220 15% 92%;
+    --secondary-foreground: 220 25% 25%;
+
+    --muted: 220 15% 94%;
+    --muted-foreground: 220 10% 45%;
+
+    --accent: 25 95% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 15% 88%;
+    --input: 220 15% 88%;
+    --ring: 25 95% 55%;
+
+    --radius: 0.75rem;
+    
+    /* Custom car rental colors */
+    --car-rental-grey: 220 15% 96%;
+    --car-rental-dark: 220 25% 12%;
+    --car-rental-orange: 25 95% 55%;
+    --car-rental-green: 142 75% 45%;
+    
+    /* Gradients for modern look */
+    --gradient-hero: linear-gradient(135deg, hsl(25 95% 55%), hsl(30 90% 60%));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(220 15% 98%));
+    --gradient-overlay: linear-gradient(180deg, transparent, hsl(220 25% 12% / 0.8));
+    
+    /* Shadows for depth */
+    --shadow-card: 0 4px 20px hsl(220 25% 15% / 0.1);
+    --shadow-hover: 0 8px 30px hsl(220 25% 15% / 0.15);
+    --shadow-button: 0 2px 10px hsl(25 95% 55% / 0.3);
+    
+    /* Animation variables */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+}
+
+@layer components {
+  /* Car rental specific components */
+  .car-card {
+    @apply bg-card rounded-xl overflow-hidden transition-all duration-300 hover:shadow-[var(--shadow-hover)] border border-border;
+    background: var(--gradient-card);
+  }
+  
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+  
+  .overlay-gradient {
+    background: var(--gradient-overlay);
+  }
+  
+  .btn-primary {
+    @apply bg-primary text-primary-foreground rounded-lg px-6 py-3 font-semibold transition-all duration-300 hover:scale-105 active:scale-95;
+    box-shadow: var(--shadow-button);
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground rounded-lg px-6 py-3 font-semibold border border-border transition-all duration-300 hover:bg-muted;
+  }
+  
+  .price-tag {
+    @apply text-primary font-bold text-lg;
+  }
+  
+  .status-available {
+    @apply bg-green-100 text-green-800 px-2 py-1 rounded-full text-sm font-medium;
+    background: hsl(var(--car-rental-green) / 0.1);
+    color: hsl(var(--car-rental-green));
+  }
+  
+  .status-unavailable {
+    @apply bg-red-100 text-red-800 px-2 py-1 rounded-full text-sm font-medium;
+  }
+  
+  /* Car animation keyframes */
+  .car-drive {
+    animation: drive 3s ease-in-out infinite;
+  }
+  
+  @keyframes drive {
+    0%, 100% { transform: translateX(0) rotate(0deg); }
+    25% { transform: translateX(10px) rotate(1deg); }
+    50% { transform: translateX(0) rotate(0deg); }
+    75% { transform: translateX(-10px) rotate(-1deg); }
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    33% { transform: translateY(-8px) rotate(2deg); }
+    66% { transform: translateY(8px) rotate(-2deg); }
+  }
+  
+  @keyframes expand {
+    0%, 100% { width: 1.25rem; opacity: 0.3; }
+    50% { width: 2rem; opacity: 0.6; }
+  }
+  
+  .car-bounce {
+    animation: bounce-car 2s ease-in-out infinite;
+  }
+  
+  @keyframes bounce-car {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  /* Smooth transitions */
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+  
+  .transition-bounce {
+    transition: var(--transition-bounce);
+  }
+}
